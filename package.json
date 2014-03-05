@@ -1,0 +1,24 @@
+{
+    "name": "pindrop-bookmarklet",
+    "version": "0.0.1",
+    "author": "Tom Drummond <tom@caffeinehit.com>",
+    "description": "Bookmarklet to add places to Pin Drop",
+    "contributors": [{
+        "name": "Tom Drummond",
+        "email": "tom@caffeinehit.com"
+    }],
+    "main": "./src/pindrop",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/caffeinehit/pindrop-bookmarklet.git"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-jshint": "^0.8.0",
+        "grunt-bookmarklet-thingy": "^0.2.0",
+        "grunt-contrib-requirejs": "^0.4.3"
+    },
+    "engine": {
+        "node": ">=0.10"
+    }
+}
