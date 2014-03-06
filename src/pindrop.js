@@ -109,7 +109,7 @@
 
                             propertyValue = elementDefinition[propertyType];
                             if (propertyValue.hasOwnProperty && "string" === typeof propertyValue) {
-                                PinDrop.set(element, propertyType, propertyValue);
+                                DomBuilder.set(element, propertyType, propertyValue);
                             }
                         }
 
