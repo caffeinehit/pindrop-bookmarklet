@@ -105,6 +105,19 @@
 
             oneAddressFound: function(address) {
                 PinDrop.addressSelected(address.formatForGeocode());
+
+                if (typeof w.getSelection === 'function') {
+                    var selectedText = window.getSelection().toString();
+
+                    if (selectedText.length > 0) {
+                        var name = find("input[name='name']");
+                        name.value = selectedText;
+                    } else {
+                        setTimeout(function(){
+                            PinDrop.oneAddressFound(address)
+                        }, 3000);
+                    }
+                }
             },
 
             multipleAddressesFound: function(addresses) {
