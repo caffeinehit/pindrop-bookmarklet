@@ -198,6 +198,9 @@
 
                         image.src = 'http://maps.googleapis.com/maps/api/staticmap?markers=' + location.lat + ',' + location.lng + '&center=' + location.lat + ',' + location.lng + '&zoom=16&size=300x300&maptype=roadmap&sensor=false'
                         logger(image.src);
+                        
+                        var submit = find("#pindrop-content-form > form");
+                        submit.addEventListener("submit", PinDrop.submitForm)
                     } else {
                         locationInput.value = '';
                         if (image) {
@@ -207,6 +210,24 @@
                 };
 
                 r.send();
+            },
+            
+            submitForm: function(e) {
+                e.preventDefault();
+                logger("Submit");
+                
+                var r = new XMLHttpRequest();
+                r.open("POST", "http://192.168.0.7:8888/api/v3/pins/", true, "tom", "tom");
+                r.onreadystatechange = function () {
+                    logger(r);
+                    logger(r.getAllResponseHeaders());
+                    logger(r.response);
+                };
+                
+                r.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                r.send("title=Caffeinehit")
+                
+                return false;
             },
         };
     }();
